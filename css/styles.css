@@ -191,7 +191,7 @@ header .nav .nav_logo span{
   color: var(--first-color);
 }
 
-.nav .nav_menu ul li a.activ_li{
+.nav .nav_menu ul li a.activ_li {
   color: var(--first-color);
 }
 
@@ -1075,12 +1075,3 @@ bottom: 2rem;
 .Show-Scroll-Up{
   bottom: 90px;
 }
-
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
-
-
-/* For medium devices */
-
-
-/* For large devices */

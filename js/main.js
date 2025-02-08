@@ -119,6 +119,43 @@ function showscroll() {
 window.addEventListener("scroll" , showscroll)
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll("section[id]");
 
+function scrollActive() {
+  const scrollY = window.pageYOffset;
+
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight,
+      sectionTop = current.offsetTop - 58,
+      sectionId = current.getAttribute("id");
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document.querySelector(".nav_item a[href*=" + sectionId + "]").classList.add("activ_li");
+    } else {
+      document.querySelector(".nav_item a[href*=" + sectionId + "]").classList.remove("activ_li");
+    }
+  });
+}
+window.addEventListener("scroll", scrollActive);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+
+const sr =ScrollReveal({
+  origin:'top',
+  distance : '60px', 
+  duration:2500,
+  delay:400,
+  reset: true
+})
+
+sr.reveal(`.home_title , .popular__card , .features_img , .featured_item`)
+sr.reveal(`.home_subtitle` , {delay:500})
+sr.reveal(`.home_elec` , {delay:600})
+sr.reveal(`.home_img` , {delay:800})
+sr.reveal(`.home_car_data` , {delay:900 , interval:100 , origin:'bottom'})
+sr.reveal(`.home_button` , {delay:1000 , origin:'bottom'})
+
+sr.reveal(`.about_group, .features_card_1 , .features_card_3 , .offer_text` , {delay:800 , origin:'left'})
+sr.reveal(`.about_data , .features_card_2 , .offer_img` , {delay:800 , origin:'right'})
+sr.reveal(`.featured_card , .logos_content , .footer_content` , {interval:100})
+
